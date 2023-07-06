@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bigfoot Trivia</title>
+    <link href="./styles/quiz.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="quizCard"></div>
+    <section id="timer"></section>
+    <article class="quizCard">
+         <section id="quiz-container" class="hidden">
+            <div id="question"></div>
+            <div id="answer-choices" class="selections">
+                <!--button class="select">Option 1</button>
+                <button class="select">Option 2</button>
+                <button class="select">Option 3</button>
+                <button class="select">Option 4</button-->
+            </div>
+         </section>
+         <section class="controls">
+                <button id="start-option" class="start-option select">Start</button>
+                <button id="next-option" class="next-option select hidden">Next</button>
+         </section>
+    
+    </aticle>
     <!--    visible features on page load: we need a start button, welcome text, high score button -- check out the visible and hidden ex.
             hidden features: timer, questions, answer buttons, div for summary elements like "completed message", input to enter intials, wins/loses,  -->
+    <script src="./scripts/quiz.js"></script>        
 </body>
 </html>

@@ -9,30 +9,121 @@
     //    answers[1][3] // "6"
     //array of correct answers var correctAnswers = ["4", "8",]
 //functions 
+var timeInterval
+var startOption = document.getElementById('start-option');
+var nextOption = document.getElementById('next-option');
+var quizContainerElement = document.getElementById('quiz-container');
+var questionElement = document.getElementById('question');
+var answerButtonsElement = document.getElementById('answer-choices');
+var time = 60;
+var questions = [
+    {
+        questionText:"placeholderQuestion",
+        choices:["each choice 1", "each choice 2", "each choice 3", "each choice 4", ],
+        correct:"each choice 1",
+
+    },
+    {
+        questionText:"placeholderQuestion2",
+        choices:["each choice 1", "each choice 2", "each choice 3", "each choice 4", ],
+        correct:"each choice 1",
+        
+    }
+]
+var questionIndex = 0
+
+
+
+//start the game and increment through the questions
+startOption.addEventListener('click', startGame);
+nextOption.addEventListener('click', () => {
+    currentQuestionIndex++
+    setNextQuestion()
+})
 
 function startGame() {
+    startOption.classList.add("hidden");    //start button disappears
+    currentQuestionIndex = 0;
+    quizContainerElement.classList.remove('hidden'); //first question appears
+    setNextQuestion();
+    startTimer();
+
     //action to initialize the game
-    //start button disappears
     //welcome text disappears
     //timer starts
-    //first question appears
     //response options for first question appears
+}
+
+function setNextQuestion() {
+
+    answerButtonsElement.innerHTML = ""
+    showQuestion(currentQuestionIndex);
+}
+
+function showQuestion() {
+    var question = questions [questionIndex]
+    questionElement.innerText = question.questionText
+    question.choices.forEach(choice => {
+        var button = document.createElement('button')
+        button.innerText = choice
+        button.addEventListener('click', selectAnswer)
+        answerButtonsElement.appendChild(button)
+    })
+}
+
+function resetState() {
+    //clearStatusClass(document.body)
+    nextOption.classList.add('hidden')
+    while (answersButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    }
+}
+
+function selectAnswer(e) {
+    var selectedAnswer = e.target.innerText
+    var correct = questions [questionIndex].correct
+    //if correct move to the next question and else reduce the time and move to the next question
+    if (selectedAnswer !== correct) {
+        time -= 10
+    }
+    questionIndex ++
+    if (questionIndex >= questions.length) {
+        document.querySelector(".quizCard").classList.add("hidden")
+        clearInterval(timeInterval)
+        var initials = prompt("enter your initials")
+        var highscore = {
+            initials, time
+        }
+        localStorage.setItem("high score", JSON.stringify(highscore))
+        window.location.reload()
+        return //stops the execution of the statement ends selectAnswer function
+    }
+    setNextQuestion()
 }
 
 function startTimer() {
     //set interval -- look through the activities from today
+    timeInterval = setInterval(function() { 
+        if (time > 1) {
+            time -= 1
+            document.querySelector('#timer') .innerText = time
+        }
+
+    }, 1000) 
     //decrement the time left each second
     //check if the time is zero, if yes - endGame (new function outside of this function)
 }
 
-function guess() {
+
+
+
+//function guess() {
     //triggered by an event listener on the options
     //what was clicked? event.target -- did the user click the correct answer
     //compare what was selected to what is the correct answer
     //if correct answer - message that says correct
     //else - message that say incorrect, reduce the time by 10 seconds
-    //call newQuestion function - renews the question on the page
-}
+    //call newQuestion function - renews the question on the page}
 
 function newQuestion() {
     //presented with the new question

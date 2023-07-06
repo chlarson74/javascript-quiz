@@ -1,0 +1,51 @@
+* {
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.quizCard {
+    width:800px;
+    max-width:80%;
+}
+
+.selections {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.select {
+    border:solid 1px black;
+    border-radius:5px;
+    padding: 5px 10px;
+    color:black;
+    outline: none;
+}
+
+.select:hover {
+    background-color:black;
+    color:white;
+}
+
+.start-option, .next-option {
+    font-size:22px;
+    font-weight:bold;
+    padding:10px 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display:none;
+}
