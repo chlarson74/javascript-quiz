@@ -1,7 +1,4 @@
-# javascript-quiz
-# pass-gen
-javascript password generator
-
+# JAVASCRIPT QUIZ
 
 ## Technology Used 
 
@@ -14,16 +11,26 @@ javascript password generator
 
 ## Description 
 
-[View the webpage](https://chlarson74.github.io/###)
+[View the webpage](https://chlarson74.github.io/javascript-quiz/)
 
-PROJECT DESCRIPTION -- I was tasked with the challenge of creating a javascript quiz. The quiz requires a timer and multiple questions. Incorrect answers must reduce the timer significantly. When the game conclude, it must be able to save the players initials and score.  
+PROJECT DESCRIPTION -- The goal of this challenge is creating a quiz utilizing javascript. The quiz is mulitple choice. It requires a functioning timer that naturally counts down and decrements if answers are incorrect. When the game concludes, the player must be able to save thier initials and score in the localStorage.  
 
-![image alt tag](./images/###.png)
+![first screen](../javascript-quiz/images/1-begin.png)
+![first question](../javascript-quiz/images/2-first-q.png)
+![prompt](../javascript-quiz/images/3-prompt.png)
+![adding initial](../javascript-quiz/images/4-initials.png)
+![local storage](../javascript-quiz/images/5-localStorage.png)
 
 
 Work completed:
-- note: List updated work completed as you move through this project.
-- 
+- Create an index.html page that is appropriate to the quiz theme
+- Elements withing the index.html need to be structured properly and are styled with CSS
+- Stylesheet has a media query for mobile devices
+- Javascript has a series of variables to call on
+- Javascript dynamically produces the questions and answers
+- Javascript determines if the players answer is correct
+- Javascript maintains a countdown timer that decrements if incorrect answers are seleted
+- Javascript triggers a prompt to enter initials when the questions are finished
 
 ## Usage 
 
@@ -32,8 +39,14 @@ Webpage deployed online is accessible through a web browser like Google Chrome.
 
 ## Learning Points 
 
-- note: List updated learning points as you move through this project.
+- Learned how to create objects
+- Leaned how to save information to the browswer's localStorage
+- Leanred how to call on an array for questions and answers
+- Learned how to append information into an HTML document through built-in methods
 
+## Resources
+- I'm grateful for the assistance that our tutors Chris Baird and Henry Weigand provided.
+- Pool Hall open source images from Unsplash.com (Sven Mieke & Gregoire Jeanneau)
 
 ## Author Info
 
