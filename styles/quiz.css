@@ -3,7 +3,7 @@
     padding:0px;
     box-sizing: border-box;
 }
-
+/* adds poolhall background image to desktop and laptop screensizes */
 body {
     display: flex;
     justify-content: center;
@@ -28,32 +28,32 @@ h1 {
     padding: 15px 0;
     font-size:1.2em;
 }
-
+/* this class is the left 1/3 of the page until mobile media */
 .intro {
     padding:20px;
     width:30%;
 }
-
+/* this targets the dynamic timer element */
 #timer {
     color:white;
+    text-shadow: 0px 0px 15px black;
     font-size:48px;
 }
-
+/* this is the right 2/3 of the content area on desktop and laptops*/
 .quizCard {
     width:800px;
     max-width:70%;
-    height: 400px;
     margin:20px;
     padding:10px;
     color:white;
-    /*border:solid white 3px;*/
+    border:solid white 3px;
 }
-
+/* this is the group of answer options dynamically generated in the javascript */
 .selections {
     display: grid;
     grid-template-columns: repeat(2, auto);
 }
-
+/* this is the individual button that contains an answer option dynamically generated in the javascript */
 .select {
     border:solid 1px black;
     border-radius:5px;
@@ -61,35 +61,37 @@ h1 {
     color:black;
     outline: none;
 }
+/* creates a uniform hover state for selections button and select */
 .selections button:hover,
 .select:hover {
     background-color:darkolivegreen;
     color:white;
     transition: 1s;
 }
-
-.start-option/*, .next-option*/ {
+/* styles the start button */
+.start-option {
     font-size:22px;
     font-weight:bold;
     padding:20px 30px;
 }
-
+/* section that contains the start button */
 .controls {
     display: flex;
-    /*justify-content: center;
-    align-items: center;*/
 }
-
+/* used to hide elements when the javascript is not using it */
 .hidden {
     display:none;
 }
 
-
+/* media query for screens smaller than 768px */
 @media screen and (max-width:768px) {
     body {
+        /* changes the body background image on mobile for better UX */
         background-image: url(../images/pool-player.jpg);
+        /* changes body from display flex to to display blockk to make child elements stack on mobile */
         display: block;
     }
+    /* uniform width for child elements of the body on mobile */
     .intro,.quizCard {
         width: 80%;
         margin: auto;

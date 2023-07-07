@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poolhall Trivia</title>
+    <title>Pool Hall Trivia</title>
     <link href="./styles/quiz.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <!--intro section is the left 1/3 of the content area for introductory content-->
     <section class="intro">
-        <h1>Poolhall Trivia</h1>
-        <p>Press start to test your world of pool knowlege. Every incorrect answer will reduce the time. The best time gets the high score.</p>    
+        <h1>Pool Hall Trivia</h1>
+        <p>Press start to test your knowlege of pool player facts. Every incorrect answer will reduce the time. The time is your score.</p>    
         <div id="timer"></div>
     </section>
+    <!--quizCard article contains the content that will be dynamically produced by the javascript-->
     <article class="quizCard">
          <section id="quiz-container" class="hidden">
+            <!--the questions are dynamically produced by the javascript-->
             <div id="question"></div>
             <div id="answer-choices" class="selections">
-                <!--button class="select">Option 1</button>
-                <button class="select">Option 2</button>
-                <button class="select">Option 3</button>
-                <button class="select">Option 4</button-->
+                <!--buttons with answer options are called from the js file-->
             </div>
          </section>
          <section class="controls">
                 <button id="start-option" class="start-option select">Start</button>
-                <button id="next-option" class="next-option select hidden">Next</button>
          </section>
-         <!-- input field for initials section class="initials">
-         </section -->
     </aticle>
-
-    <!--    visible features on page load: we need a start button, welcome text, high score button -- check out the visible and hidden ex.
-            hidden features: timer, questions, answer buttons, div for summary elements like "completed message", input to enter intials, wins/loses,  -->
     <script src="./scripts/quiz.js"></script>        
 </body>
 </html>

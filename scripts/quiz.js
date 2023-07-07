@@ -1,11 +1,12 @@
 // global variables to use in this quiz 
 var timeInterval
 var startOption = document.getElementById('start-option');
-var nextOption = document.getElementById('next-option');
 var quizContainerElement = document.getElementById('quiz-container');
 var questionElement = document.getElementById('question');
 var answerButtonsElement = document.getElementById('answer-choices');
 var time = 60;
+
+// questions creates an array of question text, choice options and correct answers. These are revealed in order in our Quiz Container in the index.html file
 var questions = [
     {
         questionText:"Who is the 2023 World 8 Ball Champ?",
@@ -51,34 +52,27 @@ var questions = [
     }
 
 ]
-var questionIndex = 0
+var questionIndex = 0 //starts the quiz with the first question
 
 //start the game and increment through the questions
 startOption.addEventListener('click', startGame);
-nextOption.addEventListener('click', () => {
-    currentQuestionIndex++
-    setNextQuestion()
-})
 
+//action to initiate the game. startGame function will make the start button hide, reveal the first question and start the timer
 function startGame() {
-    startOption.classList.add("hidden");    //start button disappears
+    startOption.classList.add("hidden"); //start button disappears
     currentQuestionIndex = 0;
     quizContainerElement.classList.remove('hidden'); //first question appears
     setNextQuestion();
     startTimer();
 
-    //action to initialize the game
-    //welcome text disappears
-    //timer starts
-    //response options for first question appears
 }
-
+// dynamically inserts the answer options into the answer-choices id on the index.html
 function setNextQuestion() {
-
     answerButtonsElement.innerHTML = ""
     showQuestion(currentQuestionIndex);
 }
-//
+
+// dynamically inserts the question into the question id on the index.html
 function showQuestion() {
     var question = questions [questionIndex]
     questionElement.innerText = question.questionText
@@ -100,8 +94,8 @@ function resetState() {
 
 function selectAnswer(e) {
     var selectedAnswer = e.target.innerText
-    var correct = questions [questionIndex].correct
-    //if correct move to the next question and else reduce the time and move to the next question
+    var correct = questions [questionIndex].correct //if correct move to the next question
+    //if incorrect move to the next question and reduce the time 10 seconds
     if (selectedAnswer !== correct) {
         time -= 10
     }
@@ -111,72 +105,28 @@ function selectAnswer(e) {
     }
     setNextQuestion()
 }
-
+//when the game ends after all the questions have been asked - a prompt will open for the user to enter their initials and record their score in the local storage
 function endGame() {
     document.querySelector(".quizCard").classList.add("hidden")
     clearInterval(timeInterval)
-    var initials = prompt("enter your initials") //don't use prompt, use an input field
+    var initials = prompt("enter your initials")
     var highscore = {
         initials, time
     }
     localStorage.setItem("high score", JSON.stringify(highscore))
-    //document.write(highscore)
-    //window.location.reload()
-    //return //use for returning a value or ending a function early
-    //stops the execution of the statement ends selectAnswer function
-    //everything disappears
-    //message "all done!" - summary text
-    //input field for initials - eventListener
-    //stop decrementing the time left
-}
-
-function afterSubmit() {
-    //create an edge case check - empty array of previous scores
-    //1 check if existing score 2 if there is an array of previous scores then add newest score to the array 3 overwrite (setItem) and save new aan array an array 3 else creat
-    //create scrore object
-    //initialField.value for the initials value in the score object
-    //insert new score into localStorage ! array of objects  [{initials: "HCW", score: 23}, {initials: "CL": score: 31}] 
-    //show high score 
-    //options to start over and clear high score
 }
 
 function startTimer() {
-    //set interval -- look through the activities from today
+    //setting timer - if time is greater than 1 then decrement the time left by 1000ms
     timeInterval = setInterval(function() { 
         if (time > 1) {
             time -= 1
             document.querySelector('#timer') .innerText = time
         }
-
     }, 1000) 
-    //decrement the time left each second
-    //check if the time is zero, if yes - endGame (new function outside of this function)
 }
 
-function showHighScores() {
-
-}
-
-
-//function guess() {
-    //triggered by an event listener on the options
-    //what was clicked? event.target -- did the user click the correct answer
-    //compare what was selected to what is the correct answer
-    //if correct answer - message that says correct
-    //else - message that say incorrect, reduce the time by 10 seconds
-    //call newQuestion function - renews the question on the page}
-
-function newQuestion() {
-    //presented with the new question
-    //presented with new response options
-    //increment the current question number
-    //if you are at the end of the array - endGame function
-}
-
-
-
-
-
+//ACCEPTANCE CRITERIA_____________________________________
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
 // WHEN I answer a question
