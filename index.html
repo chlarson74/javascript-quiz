@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bigfoot Trivia</title>
+    <title>Poolhall Trivia</title>
     <link href="./styles/quiz.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <section id="timer"></section>
+    <section class="intro">
+        <h1>Poolhall Trivia</h1>
+        <p>Press start to test your world of pool knowlege. Every incorrect answer will reduce the time. The best time gets the high score.</p>    
+        <div id="timer"></div>
+    </section>
     <article class="quizCard">
          <section id="quiz-container" class="hidden">
             <div id="question"></div>
@@ -25,6 +29,7 @@
          <!-- input field for initials section class="initials">
          </section -->
     </aticle>
+
     <!--    visible features on page load: we need a start button, welcome text, high score button -- check out the visible and hidden ex.
             hidden features: timer, questions, answer buttons, div for summary elements like "completed message", input to enter intials, wins/loses,  -->
     <script src="./scripts/quiz.js"></script>        

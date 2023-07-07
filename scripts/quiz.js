@@ -1,14 +1,4 @@
-//html selectors - sample: var startButtonEl = document.querySelector("#start");
-//var submitEl = document.querySelector("#intiails-sumbit")
-//global variables
-    //question number - current question
-    //store the time - var timeLeft - 300
-    //array of questions - var Question = ["what's two plus two", "what's two plus two", "what's two plus two", "what's two plus two",]; 
-    //array of answers - var Answers = [["4", "5" "6", "7"],["9", "8" "7", "6"],["11", "12" "16", "17"],["24", "25" "26", "27"],]
-    //    answers[1] // ["9", "8", "7", "6"]
-    //    answers[1][3] // "6"
-    //array of correct answers var correctAnswers = ["4", "8",]
-//functions 
+// global variables to use in this quiz 
 var timeInterval
 var startOption = document.getElementById('start-option');
 var nextOption = document.getElementById('next-option');
@@ -18,21 +8,50 @@ var answerButtonsElement = document.getElementById('answer-choices');
 var time = 60;
 var questions = [
     {
-        questionText:"placeholderQuestion",
-        choices:["each choice 1", "each choice 2", "each choice 3", "each choice 4", ],
-        correct:"each choice 1",
+        questionText:"Who is the 2023 World 8 Ball Champ?",
+        choices:["Francisco Sanchez Ruiz", "Jayson Shaw", "Darren Appleton", "Shane Van Boening", ],
+        correct:"Francisco Sanchez Ruiz",
 
     },
     {
-        questionText:"placeholderQuestion2",
-        choices:["each choice 1", "each choice 2", "each choice 3", "each choice 4", ],
-        correct:"each choice 1",
+        questionText:"What country is the best at pool",
+        choices:["United States", "England", "Philippines", "Spain", ],
+        correct:"Philippines",
+        
+    },
+    {
+        questionText:"Who was the 2022 World Pool Champion",
+        choices:["Francisco Sanchez Ruiz", "Jayson Shaw", "Darren Appleton", "Shane Van Boening" ],
+        correct:"Shane Van Boening",
+        
+    },
+    {
+        questionText:"Who is the 2023 World Pool Champion",
+        choices:["Francisco Sanchez Ruiz", "Jayson Shaw", "Darren Appleton", "Shane Van Boening" ],
+        correct:"Francisco Sanchez Ruiz",
+        
+    },
+    {
+        questionText:"Who won the Ohio Open in 2022",
+        choices:["Joshua Filler", "Roberto Gomez", "Fedor Gorst", "Eklent Kaci", ],
+        correct:"Fedor Gorst",
+        
+    },
+    {
+        questionText:"Who is the 2023 World 9 Ball Champ?",
+        choices:["Francisco Sanchez Ruiz", "Jayson Shaw", "Darren Appleton", "Shane Van Boening", ],
+        correct:"Francisco Sanchez Ruiz",
+        
+    },
+    {
+        questionText:"Who is the greatest pool player of all time?",
+        choices:["Willie Mosconi", "Earl Strickland", "Johnny Archer", "Efren Reyes", ],
+        correct:"Efren Reyes",
         
     }
+
 ]
 var questionIndex = 0
-
-
 
 //start the game and increment through the questions
 startOption.addEventListener('click', startGame);
@@ -59,7 +78,7 @@ function setNextQuestion() {
     answerButtonsElement.innerHTML = ""
     showQuestion(currentQuestionIndex);
 }
-
+//
 function showQuestion() {
     var question = questions [questionIndex]
     questionElement.innerText = question.questionText
@@ -101,8 +120,9 @@ function endGame() {
         initials, time
     }
     localStorage.setItem("high score", JSON.stringify(highscore))
-    window.location.reload()
-    return //use for returning a value or ending a function early
+    //document.write(highscore)
+    //window.location.reload()
+    //return //use for returning a value or ending a function early
     //stops the execution of the statement ends selectAnswer function
     //everything disappears
     //message "all done!" - summary text
